@@ -3,7 +3,8 @@
 # 데스크탑의 "콘텐츠 서버 실행.app" 이 이 스크립트를 exec 한다. 터미널에서 직접 실행해도 동일하게 동작한다.
 # 서버는 detached(nohup)로 띄우므로 런처가 끝나도 계속 실행된다.
 
-PROJ="/Users/sangbumnam/AI_Factory/AI_ContentsCreator"
+# 스크립트 위치(scripts/launcher/)에서 저장소 루트를 유도 — 머신·클론 경로에 무관.
+PROJ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 LOG="$PROJ/.launcher-logs"
 
 # LaunchServices(더블클릭) 경유 시 PATH 가 /usr/bin:/bin:/usr/sbin:/sbin 로 축소되므로 pnpm/node 위치를 보강.

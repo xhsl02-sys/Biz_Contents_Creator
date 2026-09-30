@@ -3,7 +3,8 @@
 # 데스크탑의 "콘텐츠 서버 종료.app" 이 이 스크립트를 exec 한다.
 # 프로젝트 경로 패턴으로만 pkill 하므로 같은 머신의 다른 프로젝트(gepa-ai-office 등)는 영향받지 않는다.
 
-PROJ="/Users/sangbumnam/AI_Factory/AI_ContentsCreator"
+# 스크립트 위치(scripts/launcher/)에서 저장소 루트를 유도 — 머신·클론 경로에 무관.
+PROJ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 PORTS="8787 8788"   # 8787=http, 8788=메타 OAuth https
 
 notify() { osascript -e "display notification \"$2\" with title \"$1\"" >/dev/null 2>&1; }
